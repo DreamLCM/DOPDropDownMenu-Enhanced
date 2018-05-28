@@ -165,6 +165,7 @@
             id VC = self.dataSource;
             self.dataSource = nil;
             self.dataSource = VC;
+            [self.delegate menuState:NO];
         }];
     }];
     
@@ -361,6 +362,7 @@
         _origin = origin;
         _currentSelectedMenudIndex = -1;
         self.show = NO;
+        [self.delegate menuState:NO];
         _fontSize = 14;
         _cellStyle = UITableViewCellStyleValue1;
         _separatorColor = kSeparatorColor;
@@ -944,6 +946,7 @@
                         [DOPIndexPath indexPathWithCol:_currentSelectedMenudIndex row:self.isRemainMenuTitle ? 0 : row]];
         [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
             self.show = NO;
+            [self.delegate menuState:NO];
         }];
         return YES;
     }
@@ -955,6 +958,7 @@
     title.string = [_dataSource menu:self titleForItemsInRowAtIndexPath:[DOPIndexPath indexPathWithCol:_currentSelectedMenudIndex row:currentSelectedMenudRow item:item]];
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
         self.show = NO;
+        [self.delegate menuState:NO];
     }];
     
 }
