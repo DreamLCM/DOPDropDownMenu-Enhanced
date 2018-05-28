@@ -91,6 +91,12 @@
  */
 - (NSIndexPath *)menu:(DOPDropDownMenu *)menu willSelectRowAtIndexPath:(DOPIndexPath *)indexPath;
 
+/**
+ *  点击代理，返回当前控件状态是显示还是隐藏
+ */
+///     返回控件是展开还是隐藏
+- (void)menuState:(Boolean)state;
+
 @end
 
 #pragma mark - interface

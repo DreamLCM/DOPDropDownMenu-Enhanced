@@ -523,6 +523,10 @@
             _currentSelectedMenudIndex = tapIndex;
             self.show = NO;
         }];
+        
+        NSLog(@"点击按钮收回");
+        [self.delegate menuState:NO];
+        
     } else {
         _currentSelectedMenudIndex = tapIndex;
         [_leftTableView reloadData];
@@ -533,6 +537,9 @@
         [self animateIdicator:_indicators[tapIndex] background:_backGroundView tableView:_leftTableView title:_titles[tapIndex] forward:YES complecte:^{
             self.show = YES;
         }];
+        
+        NSLog(@"点击按钮收回");
+        [self.delegate menuState:YES];
     }
 }
 
@@ -540,6 +547,7 @@
 {
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
         self.show = NO;
+        [self.delegate menuState:NO];
     }];
 }
 
