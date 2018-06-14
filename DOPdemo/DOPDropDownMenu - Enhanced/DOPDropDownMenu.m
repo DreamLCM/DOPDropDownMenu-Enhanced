@@ -686,6 +686,9 @@
         NSInteger num = [_leftTableView numberOfRowsInSection:0];
         CGFloat tableViewHeight = num * kTableViewCellHeight > _tableViewHeight+1 ? _tableViewHeight:num*kTableViewCellHeight+1;
         
+        /// 增加行高
+        tableViewHeight = tableViewHeight + 100;
+        
         [UIView animateWithDuration:0.2 animations:^{
             if (haveItems) {
                 _leftTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y + self.frame.size.height, _dropDownViewWidth/2, tableViewHeight);
